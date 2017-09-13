@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">EasyOrder_server</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="hien_layout_danh_sach_dat_mon">ĐANG ORDER</string>
+    <string name="action_settings">Settings</string>
+    <string name="hien_ten_mon">Tên món ăn</string>
+    <string name="hien_ten_mon_t">String dâu</string>
+    <string name="hien_sl">Số lượng</string>
+    <string name="hien_sl_t">3</string>
+    <string name="hien_ghi_chu">Ghi chú</string>
+    <string name="hien_ghi_chu_t">Không đá Không đá</string>
+    <string name="title_activity_them_mon_an">them_mon_an</string>
+    <string name="hint_user">Username</string>
+    <string name="hint_pass">Password</string>
+    <string name="text_login">Log in</string>
+
+</resources>
