@@ -166,7 +166,7 @@
             android:background="@drawable/hien_border"
             />
         <TextView
-            android:text="Có đá"
+            android:text="Có đáaaaaaaa"
             android:textColor="@color/white"
             android:textSize="@dimen/hien_text_table"
             android:padding="1dp"
