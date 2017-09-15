@@ -15,5 +15,6 @@
     <string name="hint_user">Username</string>
     <string name="hint_pass">Password</string>
     <string name="text_login">Log in</string>
+    <string name="title_activity_quan_li_ban">quan_li_ban</string>
 
 </resources>

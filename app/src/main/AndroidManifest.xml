@@ -22,6 +22,10 @@
         <activity
             android:name=".them_mon_an"
             android:label="@string/title_activity_them_mon_an"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".quan_li_ban"
+            android:label="@string/title_activity_quan_li_ban"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
