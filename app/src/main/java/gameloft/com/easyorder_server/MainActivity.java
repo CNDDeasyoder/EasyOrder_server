@@ -82,13 +82,21 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_table) {
-            // Handle the camera action
+            Intent intent = new Intent(this, quan_li_ban.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manager) {
+            Intent intent = new Intent(this, quan_li_mon_an.class);
+            startActivity(intent);
 
-        } else {
+        }
+        else {
             if (id == R.id.nav_add) {
                 Intent intent = new Intent(this, them_mon_an.class);
                 startActivity(intent);
+            } else if (id == R.id.nav_order) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+
             }
 
 

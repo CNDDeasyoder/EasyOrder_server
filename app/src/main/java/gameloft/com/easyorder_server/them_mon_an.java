@@ -68,24 +68,31 @@ public class them_mon_an extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)  {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_table) {
-            // Handle the camera action
-        } else if (id == R.id.nav_order) {
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, quan_li_ban.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_manager) {
+            Intent intent = new Intent(this, quan_li_mon_an.class);
             startActivity(intent);
 
-        } else {
+        }
+        else {
             if (id == R.id.nav_add) {
                 Intent intent = new Intent(this, them_mon_an.class);
                 startActivity(intent);
+            } else if (id == R.id.nav_order) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+
             }
 
 
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
