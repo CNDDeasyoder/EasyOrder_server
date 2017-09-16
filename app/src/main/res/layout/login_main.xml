@@ -46,12 +46,22 @@
         android:textColor="@color/black"
         android:background="@color/white"
         android:hint="@string/hint_pass"
+        android:inputType="textPassword"
+        />
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID và pass mặc định là: admin"
+        android:textColor="@color/white"
+        android:layout_below="@+id/edt_pass"
+        android:layout_centerHorizontal="true"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_login"
-        android:layout_below="@id/edt_pass"
+        android:layout_below="@id/tv1"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="15dp"
@@ -61,7 +71,7 @@
         android:textAllCaps="false"
         android:textStyle="bold"
         android:textSize="20dp"
-
+        android:onClick="login"
         />
 
 
