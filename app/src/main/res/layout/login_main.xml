@@ -60,7 +60,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_creat"
         android:layout_below="@id/tv1"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"

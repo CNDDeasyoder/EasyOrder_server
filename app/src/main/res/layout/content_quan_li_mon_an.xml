@@ -13,27 +13,31 @@
         android:padding="15dp"
         android:textColor="@color/white"
         />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        >
+
+    </ListView>
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mon an 1"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:id="@+id/mon_an_1"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="Edit"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="them mon an"
+            android:id="@+id/but1"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Them mon an"/>
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xoa mon an"
+            android:layout_toRightOf="@id/but1"
+            android:layout_alignParentBottom="true"
+            />
 
     </RelativeLayout>
 

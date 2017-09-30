@@ -13,6 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class quan_li_mon_an extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +45,10 @@ public class quan_li_mon_an extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        List<Food> image_details = getListData();
+        final ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(new CustomListAdapter(this, image_details));
     }
 
     @Override
@@ -105,5 +113,18 @@ public class quan_li_mon_an extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private  List<Food> getListData() {
+        List<Food> list = new ArrayList<Food>();
+        Food mon1 = new Food("mon1","mon1",1000);
+        Food mon2 = new Food("mon2","mon1",2000);
+        Food mon3 = new Food("mon3","mon1",3000);
+
+
+        list.add(mon1);
+        list.add(mon2);
+        list.add(mon3);
+
+        return list;
     }
 }
