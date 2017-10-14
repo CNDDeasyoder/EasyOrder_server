@@ -1,7 +1,15 @@
 package gameloft.com.easyorder_server;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -13,14 +21,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class them_mon_an extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int Result_load_img = 1;
+    ImageView img;
+    Button btn_UpLoad, btn_Select;
+    private StorageReference mStorageRef;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_mon_an);
+        progressDialog = new ProgressDialog(this);
+       mStorageRef = FirebaseStorage.getInstance().getReference();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -32,6 +56,40 @@ public class them_mon_an extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        img = (ImageView)findViewById(R.id.imgUpLoad);
+        btn_Select=(Button)findViewById(R.id.btnSelect);
+
+        btn_Select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent imgIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(imgIntent, Result_load_img);
+            }
+        });
+
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == Result_load_img&& resultCode == RESULT_OK&& data!=null){
+            Uri imgSelect = data.getData();
+            img.setImageURI(imgSelect);
+            progressDialog.setMessage("Dang upload...");
+            progressDialog.show();
+            StorageReference filepatch = mStorageRef.child("Image").child(imgSelect.getLastPathSegment());
+            filepatch.putFile(imgSelect).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(them_mon_an.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }
+            });
+
+
+        }
     }
 
     @Override
