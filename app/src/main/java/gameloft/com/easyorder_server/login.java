@@ -28,8 +28,10 @@ public class login extends AppCompatActivity {
         EditText edt1, edt2;
         edt1 = (EditText) findViewById(R.id.edt_username);
         edt2 = (EditText) findViewById(R.id.edt_pass);
+        Intent intent = new Intent(this, quan_li_ban.class);
+        startActivity(intent);
         if (edt1.getText().toString().equals("admin") && edt2.getText().toString().equals("admin")) {
-            Intent intent = new Intent(this, quan_li_ban.class);
+           // Intent intent = new Intent(this, quan_li_ban.class);
             startActivity(intent);
         } else {
             Toast.makeText(this, "Vui lòng nhập đúng tài khoản", Toast.LENGTH_SHORT).show();
