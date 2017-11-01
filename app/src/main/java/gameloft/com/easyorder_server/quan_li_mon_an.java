@@ -33,7 +33,8 @@ import java.util.List;
 public class quan_li_mon_an extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ArrayList<MonAn> list;ArrayList<String> list2;quan_li_mon_an_adapter madapter;
+    ArrayList<MonAn> list;ArrayList<String> list2;
+    quan_li_mon_an_adapter madapter;
     // ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
