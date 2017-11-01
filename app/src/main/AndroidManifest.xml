@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="gameloft.com.easyorder_server">
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,9 +17,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/hien_layout_danh_sach_dat_mon"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".them_mon_an"
             android:label="@string/title_activity_them_mon_an"
@@ -30,7 +29,7 @@
         <activity
             android:name=".quan_li_mon_an"
             android:label="@string/title_activity_quan_li_mon_an"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login"
             android:label="Login">
@@ -40,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".item_quan_li_mon_an"></activity>
     </application>
 
 </manifest>
