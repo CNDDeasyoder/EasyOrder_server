@@ -3,9 +3,8 @@ package gameloft.com.easyorder_server;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,9 +12,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.Toast;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class quan_li_ban extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    GridView grv;
+    ArrayList<Table> arrayList = new ArrayList<Table>();
+    TableApater apater;
+    FirebaseDatabase mFirebaseDatabase;
+    DatabaseReference mReference;
+    static int table_number;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +41,54 @@ public class quan_li_ban extends AppCompatActivity
         setContentView(R.layout.activity_quan_li_ban);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //---------------------------------------------------------------------------------
+        //Hiền code 3/11
+        //---------------------------------------------------------------------------------
+        grv = (GridView)findViewById(R.id.gr_table);
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        apater = new TableApater(this, R.layout.item_table,arrayList);
+        grv.setAdapter(apater);
 
+        mReference=mFirebaseDatabase.getReference().child("danhSachBanAn");
+       mReference.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(DataSnapshot dataSnapshot) {
+               arrayList.clear();
+               for(DataSnapshot data : dataSnapshot.getChildren()){
+
+                   boolean boo = data.child("state").getValue(boolean.class);
+                   int id = data.child("banSo").getValue(int.class);
+                   Table temp = new Table(id,boo);
+                   arrayList.add(temp);
+                    Collections.sort(arrayList, new Comparator<Table>() {
+                        @Override
+                        public int compare(Table t1, Table t2) {
+                            if(t1.getBanSo()<t2.getBanSo()) return -1;
+                            else if (t1.getBanSo()==t2.getBanSo()) return 1;else
+                                return 0;
+                        }
+                    });
+                   apater.notifyDataSetChanged();
+                   Toast.makeText(quan_li_ban.this, "Change", Toast.LENGTH_SHORT).show();
+               }
+           }
+
+           @Override
+           public void onCancelled(DatabaseError databaseError) {
+
+           }
+       });
+
+       /*arrayList.add(new Table(1,true));
+        arrayList.add(new Table(2,false));
+        arrayList.add(new Table(1,true));
+        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
+        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
+        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
+        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
+        arrayList.add(new Table(2,false));*/
+
+        //----------------------------------------------------------------------------------
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
