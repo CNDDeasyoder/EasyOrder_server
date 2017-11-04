@@ -48,7 +48,7 @@ public class TableApater extends BaseAdapter {
         Button btn = (Button)view.findViewById(R.id.btn_table);
         final Table tb = List.get(i);
         btn.setText(""+String.valueOf(tb.getBanSo()));
-        if(tb.getState()) {
+        if(!tb.getState()) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
         } else btn.setBackgroundResource(R.drawable.ban_do);
         btn.setOnClickListener(new View.OnClickListener() {
