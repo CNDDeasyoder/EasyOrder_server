@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="Easy Order Server"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -20,19 +20,21 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".them_mon_an"
-            android:label="@string/title_activity_them_mon_an"
+            android:label="Thêm món ăn"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".quan_li_ban"
-            android:label="@string/title_activity_quan_li_ban"
+            android:label="Quản lí bàn"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".quan_li_mon_an"
-            android:label="@string/title_activity_quan_li_mon_an"
+            android:label="Quản lí món ăn"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login"
-            android:label="Login">
+            android:label="Easyorder SERVER"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

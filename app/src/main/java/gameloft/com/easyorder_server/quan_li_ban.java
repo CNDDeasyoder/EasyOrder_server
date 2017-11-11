@@ -69,8 +69,7 @@ public class quan_li_ban extends AppCompatActivity
                         }
                     });
                    apater.notifyDataSetChanged();
-                   Toast.makeText(quan_li_ban.this, "Change", Toast.LENGTH_SHORT).show();
-               }
+                   }
            }
 
            @Override

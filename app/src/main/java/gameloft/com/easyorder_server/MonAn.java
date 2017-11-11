@@ -10,6 +10,16 @@ public class MonAn implements Serializable{
     int gia;
     String name, mieuta;
 
+    public int getTt() {
+        return tt;
+    }
+
+    public void setTt(int tt) {
+        this.tt = tt;
+    }
+
+    int tt;
+
     String id;
 
 
@@ -57,4 +67,6 @@ public class MonAn implements Serializable{
     public void setGia(int gia) {
         this.gia = gia;
     }
+    public void setDang_chon(int d){this.dang_chon=d;}
+    public int getDang_chon(){return this.dang_chon;}
 }
