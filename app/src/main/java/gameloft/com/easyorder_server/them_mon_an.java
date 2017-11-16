@@ -146,7 +146,8 @@ public class them_mon_an extends AppCompatActivity
                     return;
                 }
                 progressDialog.show();
-                 StorageReference mStorageReference = mStorageRef.child("Image").child(ma.getId()).child(imgSelect.getLastPathSegment());
+                 StorageReference mStorageReference = mStorageRef.child("Image")
+                         .child(String.valueOf(ma.getId()));
                 mon_data.child("mon_an").child(ma.getId()).setValue(ma);
                 mStorageReference.putFile(imgSelect).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -258,4 +259,3 @@ public class them_mon_an extends AppCompatActivity
 
     }
 }
-
