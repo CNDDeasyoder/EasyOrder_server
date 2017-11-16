@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class item_quan_li_mon_an extends AppCompatActivity {
     EditText e1,e2,e3,e4;
    public static final String EXTRA_ID = "Id";
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,11 @@ public class item_quan_li_mon_an extends AppCompatActivity {
         e3.setText(""+Id.getMieuta());
          e4=(EditText)findViewById(R.id.e4);
         e4.setText(""+Id.getGia());
-      //  ImageView photo = (ImageView)findViewById(R.id.photo);
-      //  photo.setImageResource(Id.getImageResourceId());
+        ImageView img=(ImageView)findViewById(R.id.img) ;
+        StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference mStorageReference = mStorageRef.child("Image").child(Id.getId());
+        Glide.with(this).using(new FirebaseImageLoader()).load(mStorageReference).into(img);
+      
         e1.setEnabled(false);
         e2.setEnabled(false);
         e3.setEnabled(false);
@@ -54,13 +58,47 @@ public class item_quan_li_mon_an extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("mon_an").child(id);
         myRef.setValue(m);
+        e1.setEnabled(false);
+        e2.setEnabled(false);
+        e3.setEnabled(false);
+        e4.setEnabled(false);
+        Toast.makeText(this, "Xấc nhận", Toast.LENGTH_SHORT).show();
 
     }
     public void xoa(View v)
     {
-        MonAn Id=(MonAn) getIntent().getSerializableExtra(EXTRA_ID);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("mon_an").child(Id.getId());
-        myRef.removeValue();
+       
+        showAlertDialog();
+    }
+    public void showDialog(){
+        dialog = new Dialog(this);
+
+        dialog.setContentView(android.R.layout.select_dialog_item);
+        dialog.show();
+    }
+    public void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Bạn có muốn xóa món ăn này không?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MonAn Id=(MonAn) getIntent().getSerializableExtra(EXTRA_ID);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference().child("mon_an").child(Id.getId());
+                myRef.removeValue();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+
     }
 }
