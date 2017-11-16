@@ -27,6 +27,10 @@ public class item_quan_li_mon_an extends AppCompatActivity {
         e3.setText(""+Id.getMieuta());
          e4=(EditText)findViewById(R.id.e4);
         e4.setText(""+Id.getGia());
+        ImageView img=(ImageView)findViewById(R.id.img) ;
+        StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference mStorageReference = mStorageRef.child("Image").child(Id.getId());
+        Glide.with(this).using(new FirebaseImageLoader()).load(mStorageReference).into(img);
       
         e1.setEnabled(false);
         e2.setEnabled(false);
