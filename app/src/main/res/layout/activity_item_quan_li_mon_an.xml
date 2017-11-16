@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="gameloft.com.easyorder_server.item_quan_li_mon_an">
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="150dp"
+       android:id="@+id/img"
+       android:scaleType="center"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
