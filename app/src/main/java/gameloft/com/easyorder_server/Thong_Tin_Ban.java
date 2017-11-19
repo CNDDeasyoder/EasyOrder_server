@@ -1,7 +1,10 @@
 package gameloft.com.easyorder_server;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +35,6 @@ public class Thong_Tin_Ban extends AppCompatActivity {
     ThongTinBan_apt apt;
     ProgressDialog pro;
     int sum;
-    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +104,7 @@ public class Thong_Tin_Ban extends AppCompatActivity {
         Intent intent = new Intent(this,quan_li_ban.class);
         startActivity(intent);
     }
+
     public void showAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

@@ -60,16 +60,17 @@ public class quan_li_ban extends AppCompatActivity
                    int id = data.child("banSo").getValue(int.class);
                    Table temp = new Table(id,boo);
                    arrayList.add(temp);
-                    Collections.sort(arrayList, new Comparator<Table>() {
-                        @Override
-                        public int compare(Table t1, Table t2) {
-                            if(t1.getBanSo()<t2.getBanSo()) return -1;
-                            else if (t1.getBanSo()==t2.getBanSo()) return 1;else
-                                return 0;
-                        }
-                    });
-                   apater.notifyDataSetChanged();
                    }
+               apater.notifyDataSetChanged();
+               Collections.sort(arrayList, new Comparator<Table>() {
+                   @Override
+                   public int compare(Table t1, Table t2) {
+                       if(t1.getBanSo()<t2.getBanSo()) return -1;
+                       else if (t1.getBanSo()==t2.getBanSo()) return 0;else
+                           return 1;
+                   }
+               });
+               apater.notifyDataSetChanged();
            }
 
            @Override
@@ -92,8 +93,8 @@ public class quan_li_ban extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent mIntent =  new Intent(quan_li_ban.this, Them_ban.class);
+                startActivity(mIntent);
             }
         });
 

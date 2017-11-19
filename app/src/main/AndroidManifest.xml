@@ -33,8 +33,7 @@
         <activity
             android:name=".login"
             android:label="Easyorder SERVER"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +41,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".item_quan_li_mon_an" />
-        <activity android:name=".Thong_Tin_Ban"></activity>
+        <activity android:name=".Thong_Tin_Ban" />
+        <activity android:name=".Them_ban"></activity>
     </application>
 
 </manifest>
