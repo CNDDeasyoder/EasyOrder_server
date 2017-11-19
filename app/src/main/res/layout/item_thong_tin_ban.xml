@@ -4,92 +4,81 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="3dp"
     android:padding="3dp"
-    android:weightSum="3"
+    android:weightSum="5"
     android:background="#ffffff"
     android:orientation="horizontal">
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        >
+        android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal"
             android:layout_weight="1"
-            >
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Tên món"
-                android:textAlignment="center"
-                android:layout_weight="2"
-                />
-            <TextView
-                android:textColor="#f00"
                 android:id="@+id/table_info_name"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="Tên món"
                 android:layout_weight="1"
+                android:text="Tên món"
+                android:textSize="17dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
                 android:textAlignment="center"
-                />
+                android:textColor="@color/black" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal"
             android:layout_weight="1"
-            >
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Số lượng:"
-                android:textAlignment="center"
-                android:layout_weight="2"
-                />
-            <TextView
-                android:textColor="#f00"
                 android:id="@+id/table_info_sl"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="Tên món"
                 android:layout_weight="1"
+                android:text="So luong"
+                android:textSize="17dp"
+                android:gravity="center_vertical"
                 android:textAlignment="center"
-                />
+                android:textColor="#6e6e6e" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal"
             android:layout_weight="1"
-            >
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Giá"
-                android:textAlignment="center"
-                android:layout_weight="2"
-                />
-            <TextView
-                android:textColor="#f00"
                 android:id="@+id/table_info_gia"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="Tên món"
                 android:layout_weight="1"
+                android:text="gia"
+                android:textSize="17dp"
+                android:gravity="center_vertical"
                 android:textAlignment="center"
-                />
+                android:textColor="#f00" />
         </LinearLayout>
     </LinearLayout>
+
     <Button
            android:id="@+id/btn_xoa_mon"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Xóa"
-            android:textStyle="bold"
+            android:text="X"
+            android:textColor="#f00"
+            android:textSize="15dp"
+
             />
 
 </LinearLayout>
