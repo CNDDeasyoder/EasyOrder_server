@@ -32,6 +32,7 @@ public class Thong_Tin_Ban extends AppCompatActivity {
     ThongTinBan_apt apt;
     ProgressDialog pro;
     int sum;
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,13 +90,7 @@ public class Thong_Tin_Ban extends AppCompatActivity {
         btn_set_false.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pro.setMessage("Đang thay đổi trạng thái");
-                pro.setCancelable(false);
-                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(false);
-                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number))
-                        .child("khachHang").removeValue();
-                pro.dismiss();
-                onBackPressed();
+                 showAlertDialog();
             }
         });
         //------------------------------------------------
@@ -107,4 +102,30 @@ public class Thong_Tin_Ban extends AppCompatActivity {
         Intent intent = new Intent(this,quan_li_ban.class);
         startActivity(intent);
     }
+    public void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Xac nhan da thanh toan?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                pro.setMessage("Đang thay đổi trạng thái");
+                pro.setCancelable(false);
+                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(false);
+                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number))
+                        .child("khachHang").removeValue();
+                pro.dismiss();
+                onBackPressed();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+      }
 }
