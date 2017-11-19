@@ -6,9 +6,9 @@ package gameloft.com.easyorder_server;
 
 public class Table {
     int banSo;
-    boolean state;
+    int state;
 
-    public Table(int banSo, boolean state) {
+    public Table(int banSo, int state) {
         this.banSo = banSo;
         this.state = state;
     }
@@ -21,11 +21,11 @@ public class Table {
         this.banSo = banSo;
     }
 
-    public boolean getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(int state) {
         this.state = state;
     }
 }

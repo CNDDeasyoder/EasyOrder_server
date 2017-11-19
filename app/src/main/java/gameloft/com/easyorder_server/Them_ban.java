@@ -66,7 +66,7 @@ public class Them_ban extends AppCompatActivity {
                 mProgressDialog.show();
                 int num = Integer.parseInt(sobanthem.getText().toString());
                 for (int i = crr_table; i< crr_table+num; i++){
-                    Table temp = new Table(i,false);
+                    Table temp = new Table(i,0);
                     mDatabaseReference.child("danhSachBanAn")
                             .child("ban"+String.valueOf(i)).setValue(temp);
                 }

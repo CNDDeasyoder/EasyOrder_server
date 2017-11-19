@@ -56,7 +56,7 @@ public class quan_li_ban extends AppCompatActivity
                arrayList.clear();
                for(DataSnapshot data : dataSnapshot.getChildren()){
 
-                   boolean boo = data.child("state").getValue(boolean.class);
+                   int boo = data.child("state").getValue(int.class);
                    int id = data.child("banSo").getValue(int.class);
                    Table temp = new Table(id,boo);
                    arrayList.add(temp);

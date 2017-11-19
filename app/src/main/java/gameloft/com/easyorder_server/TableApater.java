@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 /**
@@ -45,12 +51,13 @@ public class TableApater extends BaseAdapter {
 
         view = inflater.inflate(layout, null);
 
-        Button btn = (Button)view.findViewById(R.id.btn_table);
+        final Button btn = (Button)view.findViewById(R.id.btn_table);
         final Table tb = List.get(i);
         btn.setText(""+String.valueOf(tb.getBanSo()));
-        if(!tb.getState()) {
+        if( tb.getState() == 0) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
-        } else btn.setBackgroundResource(R.drawable.ban_do);
+        } else if (tb.getState() == 1) btn.setBackgroundResource(R.drawable.ban_do);
+        
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

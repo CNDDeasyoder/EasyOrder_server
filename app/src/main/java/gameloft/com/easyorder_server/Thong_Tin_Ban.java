@@ -84,7 +84,7 @@ public class Thong_Tin_Ban extends AppCompatActivity {
             public void onClick(View view) {
                 pro.setMessage("Đang thay đổi trạng thái");
                 pro.setCancelable(false);
-                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(true);
+                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(1);
                 pro.dismiss();
                 onBackPressed();
             }
@@ -121,7 +121,7 @@ public class Thong_Tin_Ban extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 pro.setMessage("Đang thay đổi trạng thái");
                 pro.setCancelable(false);
-                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(false);
+                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(0);
                 mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number))
                         .child("khachHang").removeValue();
                 pro.dismiss();
