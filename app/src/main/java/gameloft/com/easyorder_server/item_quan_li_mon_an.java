@@ -79,12 +79,7 @@ public class item_quan_li_mon_an extends AppCompatActivity {
        
         showAlertDialog();
     }
-    public void showDialog(){
-        dialog = new Dialog(this);
-
-        dialog.setContentView(android.R.layout.select_dialog_item);
-        dialog.show();
-    }
+    
     public void showAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -103,6 +98,8 @@ public class item_quan_li_mon_an extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference().child("mon_an").child(Id.getId());
                 myRef.removeValue();
+                Intent intent = new Intent(item_quan_li_mon_an.this,quan_li_mon_an.class);
+                startActivity(intent);
             }
         });
         AlertDialog alertDialog = builder.create();
