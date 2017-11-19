@@ -13,14 +13,74 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    ListView lv;
+    DatabaseReference mDatabaseReference;
+    FirebaseDatabase mFirebaseDatabase;
+    ArrayList<Queue_MonAn> arrayList = new ArrayList<Queue_MonAn>();
+    Queue_apt apt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lv = (ListView)findViewById(R.id.q_lv);
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference();
+        apt = new Queue_apt(this,R.layout.item_queue,arrayList);
+        lv.setAdapter(apt);
+        //----------------------------------
+        mDatabaseReference.child("danhSachOrder").child("danhSach")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot data : dataSnapshot.getChildren()){
+                            Queue_MonAn monAn = new Queue_MonAn();
+                            monAn.setTt(Integer.parseInt(data.getKey()));
+                            monAn.setBan(data.child("ban").getValue(int.class));
+                            monAn.setSl(data.child("sl").getValue(int.class));
+                            monAn.setTen(data.child("ten").getValue(String.class));
+                            monAn.setGia(0);
+                            arrayList.add(monAn);
+                            Collections.sort(arrayList, new Comparator<Queue_MonAn>() {
+                                @Override
+                                public int compare(Queue_MonAn m1, Queue_MonAn m2) {
+                                    if(m1.getTt()<m2.getTt()) return -1;
+                                    else if(m1.getTt()==m2.getTt()) return 1;
+                                    else return 0;
+                                }
+                            });
+                            apt.notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
+
+
+
+        //---------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
