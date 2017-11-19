@@ -24,6 +24,7 @@ public class ThongTinBan_apt extends BaseAdapter {
         this.layout = layout;
         this.List = list;
     }
+    Dialog dialog;
 
     @Override
     public int getCount() {
@@ -59,14 +60,31 @@ public class ThongTinBan_apt extends BaseAdapter {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase mFirebaseDatabase;
-                DatabaseReference mDatabaseReference;
-                mFirebaseDatabase=FirebaseDatabase.getInstance();
-                mDatabaseReference=mFirebaseDatabase.getReference();
-                mDatabaseReference.child("danhSachBanAn").child("ban"+String.valueOf(quan_li_ban.table_number))
-                        .child("khachHang").child("danhSachMonAn").child(String.valueOf(m.getTt())).removeValue();
-                Intent intent = new Intent(context,Thong_Tin_Ban.class);
-                context.startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setMessage("Xac nhan xoa mon an?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                builder.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase mFirebaseDatabase;
+                        DatabaseReference mDatabaseReference;
+                        mFirebaseDatabase=FirebaseDatabase.getInstance();
+                        mDatabaseReference=mFirebaseDatabase.getReference();
+                        mDatabaseReference.child("danhSachBanAn").child("ban"+String.valueOf(quan_li_ban.table_number))
+                                .child("khachHang").child("danhSachMonAn").child(String.valueOf(m.getTt())).removeValue();
+                        Intent intent = new Intent(context,Thong_Tin_Ban.class);
+                        context.startActivity(intent);
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 
