@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="gameloft.com.easyorder_server.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     >
     <ListView
         android:layout_width="fill_parent"

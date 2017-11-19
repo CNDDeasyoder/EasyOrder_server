@@ -6,71 +6,70 @@
 <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_weight="1"
+    android:weightSum="3"
+    android:layout_margin="5dp"
     >
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
         <TextView
+            android:id="@+id/q_ban"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tên món:"
-            />
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tên món"
-            android:id="@+id/q_ten"
-            android:textAlignment="center"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Số lượng:"
-            />
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Số lượng"
-            android:id="@+id/q_sl"
-            android:textAlignment="center"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Bàn:"
-            />
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:text="Bàn"
-            android:id="@+id/q_ban"
+            android:textColor="@color/primary_orange"
             android:textAlignment="center"
-            />
+            android:textSize="24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/q_ten"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tên món"
+                android:textSize="18dp"
+                android:textAlignment="textStart" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Số lượng"
+                android:textSize="18dp"
+                android:textColor="#ff1a1a"
+                android:id="@+id/q_sl"
+                android:textAlignment="textEnd"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -79,11 +78,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="3"
+        android:gravity="center"
         >
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Đã xong"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/tick"
         android:layout_gravity="center_vertical"
         android:id="@+id/q_btn"
         />

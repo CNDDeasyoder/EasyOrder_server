@@ -8,99 +8,123 @@
     tools:context="gameloft.com.easyorder_server.item_quan_li_mon_an">
    <ImageView
        android:layout_width="match_parent"
-       android:layout_height="150dp"
+       android:layout_height="120dp"
+       android:layout_margin="15dp"
        android:id="@+id/img"
        android:scaleType="center"/>
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ten mon an"
+            android:text="Tên món"
             android:textSize="16dp"
             android:padding="16dp"
-            android:id="@+id/t1"/>
+            android:id="@+id/t1"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/e1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/t1"/>
-    </RelativeLayout>
-    <RelativeLayout
+            android:layout_toRightOf="@id/t1"
+            android:layout_weight="1"
+        />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dang chon"
+            android:text="Chọn?"
             android:textSize="16dp"
             android:padding="16dp"
-            android:id="@+id/t2"/>
+            android:id="@+id/t2"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/e2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/t2"/>
-    </RelativeLayout>
-    <RelativeLayout
+            android:layout_toRightOf="@id/t2"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mieu ta"
+            android:text="Mô tả"
             android:textSize="16dp"
             android:padding="16dp"
-            android:id="@+id/t3"/>
+            android:id="@+id/t3"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/e3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/t3"/>
-    </RelativeLayout>
-    <RelativeLayout
+            android:layout_toRightOf="@id/t3"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gia"
+            android:text="Giá"
             android:textSize="16dp"
             android:padding="16dp"
-            android:id="@+id/t4"/>
+            android:id="@+id/t4"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/e4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/t4" />
-    </RelativeLayout>
+            android:layout_toRightOf="@id/t4"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/but1"
-            android:text="xacnhan"
-            android:onClick="xacnhan"/>
+            android:text="Xác nhận"
+            android:onClick="xacnhan"
+            android:layout_margin="10dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/but1"
             android:layout_alignParentBottom="true"
-            android:text="xoa"
+            android:text="Xóa"
             android:onClick="xoa"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/but1"
             android:layout_alignParentBottom="true"
-            android:text="sua"
+            android:text="Sửa"
             android:onClick="sua"/>
     </RelativeLayout>
 
