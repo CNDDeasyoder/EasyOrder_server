@@ -72,6 +72,9 @@ public class item_quan_li_mon_an extends AppCompatActivity {
         e3.setEnabled(false);
         e4.setEnabled(false);
         Toast.makeText(this, "Xấc nhận", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(item_quan_li_mon_an.this,quan_li_mon_an.class);
+                startActivity(intent);
+        
 
     }
     public void xoa(View v)
