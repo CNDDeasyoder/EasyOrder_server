@@ -22,8 +22,6 @@ public class MonAn implements Serializable{
 
     String id;
 
-
-
     public MonAn() {
     }
 
