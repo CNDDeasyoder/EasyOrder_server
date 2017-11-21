@@ -17,16 +17,21 @@
         android:id="@+id/btn_doi_code"
         android:layout_width="match_parent"
         android:text="Đổi code"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/orange_bright" />
 
     <Button
         android:id="@+id/btn_doi_pass"
         android:layout_width="match_parent"
         android:text="Đổi mật khẩu"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/orange_bright"
+        android:layout_marginTop="20dp"/>
     <Button
         android:id="@+id/btn_thoat"
         android:layout_width="match_parent"
         android:text="thoát"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/orange_bright"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
