@@ -1,6 +1,8 @@
 package gameloft.com.easyorder_server;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,6 +33,10 @@ public class login extends AppCompatActivity {
     }
 
     public void login(View view) {
+        if(!isOnline()){
+            Toast.makeText(this, "Vui lòng kết nối mạng", Toast.LENGTH_SHORT).show();
+            return;
+        }
         EditText edt1, edt2;
         edt1 = (EditText) findViewById(R.id.edt_username);
         edt2 = (EditText) findViewById(R.id.edt_pass);
@@ -57,5 +63,11 @@ public class login extends AppCompatActivity {
 
             }
         });
+    }
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 }
