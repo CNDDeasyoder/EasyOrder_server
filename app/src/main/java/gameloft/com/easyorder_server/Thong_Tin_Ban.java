@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Thong_Tin_Ban extends AppCompatActivity {
-    Button btn_set_true, btn_set_false;
+    Button btn_set_true, btn_set_false, btn_unlock;
     TextView name, table, tsum;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
@@ -44,6 +44,7 @@ public class Thong_Tin_Ban extends AppCompatActivity {
         mDatabaseReference=mFirebaseDatabase.getReference();
         btn_set_true=(Button)findViewById(R.id.btn_set_true);
         btn_set_false=(Button)findViewById(R.id.btn_set_false);
+        btn_unlock = (Button)findViewById(R.id.btn_set_unlock);
         name=(TextView) findViewById(R.id.user_name);
         table=(TextView) findViewById(R.id.user_table);
         tsum = (TextView)findViewById(R.id.user_sum);
@@ -96,6 +97,14 @@ public class Thong_Tin_Ban extends AppCompatActivity {
             }
         });
         //------------------------------------------------
+
+        btn_unlock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(0);
+                onBackPressed();
+            }
+        });
 
     }
 
