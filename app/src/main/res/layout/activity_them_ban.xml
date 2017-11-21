@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context="gameloft.com.easyorder_server.Them_ban">
     <TextView
         android:layout_marginTop="25dp"
@@ -35,6 +36,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="THÊM"
+            android:background="@color/orange_bright"
             android:id="@+id/add_table"
             />
         <LinearLayout
@@ -49,6 +51,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="XÓA"
+            android:background="@color/orange_bright"
             android:id="@+id/remove_table"
             />
         <LinearLayout
@@ -65,6 +68,7 @@
         android:text="Số lượng bàn hiện tại"
         android:layout_gravity="end"
         android:textSize="20sp"
+        android:layout_marginTop="20dp"
         android:textColor="#ff0000"
         android:layout_marginRight="20dp"
         />
