@@ -12,14 +12,11 @@
         android:icon="@drawable/logo"
         android:label="Easy Order Server"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/hien_layout_danh_sach_dat_mon"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".QuanLiTaiKhoan"
-            android:label="Quản lí tài khoản"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".them_mon_an"
@@ -45,7 +42,11 @@
         </activity>
         <activity android:name=".item_quan_li_mon_an" />
         <activity android:name=".Thong_Tin_Ban" />
-        <activity android:name=".Them_ban"></activity>
+        <activity android:name=".Them_ban" />
+        <activity
+            android:name=".QuanLiTaiKhoan"
+            android:label="@string/title_activity_quan_li_tai_khoan"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

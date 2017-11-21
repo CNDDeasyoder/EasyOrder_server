@@ -2,6 +2,9 @@ package gameloft.com.easyorder_server;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,12 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -143,10 +148,8 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
 
-            }
-            else if (id == R.id.account)
-            {
-                Intent intent = new Intent(this, QuanLiTaiKhoan.class);
+            }else if(id == R.id.nav_out){
+                Intent intent = new Intent(this,QuanLiTaiKhoan.class);
                 startActivity(intent);
             }
 

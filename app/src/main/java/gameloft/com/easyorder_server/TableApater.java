@@ -68,8 +68,7 @@ public class TableApater extends BaseAdapter {
                     .setContentTitle("Có yêu cầu thanh toán")
                     .setContentText("Bàn "+tb.getBanSo()+" đang yêu cầu thanh toán")
                     .getNotification();
-            msgmng.notify(tb.getBanSo(),msg
-            );
+            msgmng.notify(tb.getBanSo(),msg);
         }
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

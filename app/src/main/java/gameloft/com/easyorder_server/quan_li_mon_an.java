@@ -2,6 +2,11 @@ package gameloft.com.easyorder_server;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,8 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -19,8 +24,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class quan_li_mon_an extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -153,10 +161,8 @@ public class quan_li_mon_an extends AppCompatActivity
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
 
-            }
-            else if (id == R.id.account)
-            {
-                Intent intent = new Intent(this, QuanLiTaiKhoan.class);
+            } else if(id == R.id.nav_out){
+                Intent intent = new Intent(this,QuanLiTaiKhoan.class);
                 startActivity(intent);
             }
 

@@ -261,7 +261,7 @@ public class QuanLiTaiKhoan extends AppCompatActivity
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             }
-            else if (id == R.id.account)
+            else if (id == R.id.nav_out)
             {
                 Intent intent = new Intent(this, QuanLiTaiKhoan.class);
                 startActivity(intent);

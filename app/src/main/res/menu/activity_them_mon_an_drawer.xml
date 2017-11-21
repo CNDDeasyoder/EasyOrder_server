@@ -7,7 +7,7 @@
             android:icon="@drawable/table"
             android:title="Quản lí bàn" />
         <item
-            android:id="@+id/nav_manager"
+            android:id="@+id/quan_li"
             android:icon="@drawable/mon_an"
             android:title="Quản lí món ăn" />
         <item
@@ -18,10 +18,15 @@
             android:id="@+id/nav_order"
             android:icon="@drawable/order"
             android:title="danh sách đang order" />
-        <item
-            android:id="@+id/account"
-            android:icon="@drawable/account_circle"
-            android:title="Tài khoản" />
     </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/log_out"
+                android:title="Đăng xuất" />
+        </menu>
+    </item>
 
 </menu>

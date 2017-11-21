@@ -17,5 +17,6 @@
     <string name="text_login">Log in</string>
     <string name="title_activity_quan_li_ban">quan_li_ban</string>
     <string name="title_activity_quan_li_mon_an">quan_li_mon_an</string>
+    <string name="title_activity_quan_li_tai_khoan">QuanLiTaiKhoan</string>
 
 </resources>
