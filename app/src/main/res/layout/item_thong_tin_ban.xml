@@ -27,6 +27,7 @@
                 android:layout_weight="1"
                 android:text="Tên món"
                 android:textSize="17dp"
+                android:background="#ffe7d4"
                 android:gravity="center_vertical"
                 android:layout_gravity="center_vertical"
                 android:textAlignment="center"
@@ -44,11 +45,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="So luong"
-                android:textSize="17dp"
                 android:gravity="center_vertical"
+                android:text="So luong"
+                android:background="#dfdfdf"
                 android:textAlignment="center"
-                android:textColor="#6e6e6e" />
+                android:textColor="#6e6e6e"
+                android:textSize="17dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,15 +65,17 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:text="gia"
+                android:background="#ffe7d4"
                 android:textSize="17dp"
                 android:gravity="center_vertical"
                 android:textAlignment="center"
-                android:textColor="#f00" />
+                android:textColor="#ff0000" />
         </LinearLayout>
     </LinearLayout>
 
     <Button
            android:id="@+id/btn_xoa_mon"
+        android:background="#dfdfdf"
             android:layout_weight="4"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
