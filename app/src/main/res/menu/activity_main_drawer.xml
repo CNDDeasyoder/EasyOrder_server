@@ -18,15 +18,10 @@
             android:id="@+id/nav_order"
             android:icon="@drawable/order"
             android:title="danh sách đang order" />
+        <item
+            android:id="@+id/account"
+            android:icon="@drawable/account_circle"
+            android:title="Tài khoản" />
     </group>
-
-    <item android:title="">
-        <menu>
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/log_out"
-                android:title="Đăng xuất" />
-        </menu>
-    </item>
 
 </menu>
