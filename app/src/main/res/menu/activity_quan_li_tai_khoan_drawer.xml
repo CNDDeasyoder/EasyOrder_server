@@ -7,7 +7,7 @@
             android:icon="@drawable/table"
             android:title="Quản lí bàn" />
         <item
-            android:id="@+id/quan_li"
+            android:id="@+id/nav_manager"
             android:icon="@drawable/mon_an"
             android:title="Quản lí món ăn" />
         <item
