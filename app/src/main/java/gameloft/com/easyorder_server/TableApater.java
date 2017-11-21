@@ -1,5 +1,7 @@
 package gameloft.com.easyorder_server;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.List;
 
@@ -57,8 +60,17 @@ public class TableApater extends BaseAdapter {
         if( tb.getState() == 0) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
         } else if (tb.getState() == 1) btn.setBackgroundResource(R.drawable.ban_do);
-        else if(tb.getState()==2) btn.setBackgroundResource(R.drawable.ban_vang);
-
+        else if(tb.getState()==2) {
+            btn.setBackgroundResource(R.drawable.ban_vang);
+            NotificationManager msgmng = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            Notification msg = new Notification.Builder(context)
+                    .setSmallIcon(R.drawable.ban_vang)
+                    .setContentTitle("Có yêu cầu thanh toán")
+                    .setContentText("Bàn "+tb.getBanSo()+" đang yêu cầu thanh toán")
+                    .getNotification();
+            msgmng.notify(tb.getBanSo(),msg
+            );
+        }
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
