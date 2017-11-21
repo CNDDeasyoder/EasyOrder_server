@@ -3,89 +3,94 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:layout_weight="1"
-    android:weightSum="3"
-    android:layout_margin="5dp"
-    >
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="2"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/q_ban"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:text="Bàn"
-            android:textColor="@color/primary_orange"
-            android:textAlignment="center"
-            android:textSize="24dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical">
+        android:weightSum="4"
+        android:layout_margin="5dp"
+
+        >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            >
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/q_ten"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tên món"
-                android:textSize="18dp"
-                android:textAlignment="textStart" />
+                android:id="@+id/q_ban"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="Bàn"
+                android:textColor="@color/primary_orange"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:background="@drawable/orange_circle" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            >
-            <TextView
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:text="Số lượng"
-                android:textSize="18dp"
-                android:textColor="#ff1a1a"
-                android:id="@+id/q_sl"
-                android:textAlignment="textEnd"
-                />
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/q_ten"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tên món"
+                    android:textSize="18dp"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Số lượng"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:textColor="#ff1a1a"
+                    android:id="@+id/q_sl"
+                    android:textAlignment="textEnd"
+                    />
+            </LinearLayout>
         </LinearLayout>
+
+
     </LinearLayout>
-
-
-</LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="3"
+        android:layout_weight="5"
         android:gravity="center"
         >
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/tick"
-        android:layout_gravity="center_vertical"
-        android:id="@+id/q_btn"
-        />
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:background="@drawable/tick"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/q_btn"
+            />
     </LinearLayout>
 </LinearLayout>

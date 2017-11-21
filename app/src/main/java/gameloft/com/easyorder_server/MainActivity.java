@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity
                                 @Override
                                 public int compare(Queue_MonAn m1, Queue_MonAn m2) {
                                     if(m1.getTt()<m2.getTt()) return -1;
-                                    else if(m1.getTt()==m2.getTt()) return 1;
-                                    else return 0;
+                                    else if(m1.getTt()==m2.getTt()) return 0;
+                                    else return 1;
                                 }
                             });
                             apt.notifyDataSetChanged();
