@@ -37,11 +37,12 @@ public class login extends AppCompatActivity {
             Toast.makeText(this, "Vui lòng kết nối mạng", Toast.LENGTH_SHORT).show();
             return;
         }
+        MD5 lib = new MD5();
         EditText edt1, edt2;
         edt1 = (EditText) findViewById(R.id.edt_username);
         edt2 = (EditText) findViewById(R.id.edt_pass);
         final Intent intent = new Intent(this, quan_li_ban.class);
-        password = MD5Library.md5(edt2.toString());
+        password = lib.md5(edt2.getText().toString().trim());
         //mdatabaseReference.child("password").setValue(password);
         Query query = mdatabaseReference.child("password").orderByValue();
         query.addListenerForSingleValueEvent(new ValueEventListener() {

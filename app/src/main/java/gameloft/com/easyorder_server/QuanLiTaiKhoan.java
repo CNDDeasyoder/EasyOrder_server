@@ -104,18 +104,19 @@ public class QuanLiTaiKhoan extends AppCompatActivity
                         }
                         else
                         {
+                            final MD5 lib = new MD5();
                             Query query = mdatabaseReference.child("password").orderByValue();
                             query.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     pass = dataSnapshot.getValue().toString();
-                                    if (!pass.equals(MD5Library.md5(edtPassCu.getText().toString())))
+                                    if (!pass.equals(lib.md5(edtPassCu.getText().toString())))
                                     {
                                         Toast.makeText(QuanLiTaiKhoan.this, "Mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
                                     }
                                     else
                                     {
-                                        code = MD5Library.md5(edtPassMoi.getText().toString());
+                                        code = lib.md5(edtPassMoi.getText().toString());
                                         mdatabaseReference.child("password").setValue(code);
                                         Toast.makeText(QuanLiTaiKhoan.this, "Mật khẩu đã đổi!", Toast.LENGTH_SHORT).show();
                                         dialog.cancel();
@@ -161,12 +162,13 @@ public class QuanLiTaiKhoan extends AppCompatActivity
                         }
                         else
                         {
+                            final MD5 lib = new MD5();
                             Query query = mdatabaseReference.child("password").orderByValue();
                             query.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     pass = dataSnapshot.getValue().toString();
-                                    if (!pass.equals(MD5Library.md5(edtPass.getText().toString())))
+                                    if (!pass.equals(lib.md5(edtPass.getText().toString())))
                                     {
                                         Toast.makeText(QuanLiTaiKhoan.this, "Mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
                                     }
