@@ -18,8 +18,8 @@ import java.util.StringTokenizer;
 public class Queue_apt extends BaseAdapter {
     private Context context;
     private int layout;
-    private java.util.List<Queue_MonAn> List;
-    public Queue_apt(Context context, int layout, List<Queue_MonAn> list) {
+    private java.util.List<MonAn> List;
+    public Queue_apt(Context context, int layout, List<MonAn> list) {
         this.context = context;
         this.layout = layout;
         this.List = list;
@@ -41,11 +41,11 @@ public class Queue_apt extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(layout, null);
 
-        final Queue_MonAn m = List.get(i);
+        final MonAn m = List.get(i);
         TextView tname, tban,tsl;
         Button btn = (Button)view.findViewById(R.id.q_btn);
         //-----------------------------
@@ -55,18 +55,36 @@ public class Queue_apt extends BaseAdapter {
         tname.setText(m.getTen());
         tban.setText(String.valueOf(m.getBan()));
         tsl.setText(String.valueOf(m.getSl()));
+        if(m.getState()==0) btn.setBackgroundResource(R.drawable.cook);
+        if(m.getState()==1) btn.setBackgroundResource(R.drawable.check);
         //---------------------------------------------
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase mFirebaseDatabase;
-                DatabaseReference mDatabaseReference;
-                mFirebaseDatabase=FirebaseDatabase.getInstance();
-                mDatabaseReference=mFirebaseDatabase.getReference();
-                mDatabaseReference.child("danhSachOrder").child("danhSach").child(String.valueOf(m.getTt()))
-                        .removeValue();
-                Intent intent = new Intent(context,MainActivity.class);
-                context.startActivity(intent);
+                if(m.getState()==0){
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                    db.child("danhSachBanAn").child("ban"+String.valueOf(m.getBan()))
+                            .child("khachHang").child("danhSachMonAn")
+                            .child(String.valueOf(m.getStt())).child("state")
+                            .setValue(1);
+                    db.child("danhSachOrder").child("danhSach").child(String.valueOf(m.getStt()))
+                            .child("state").setValue(1);
+                    m.setState(1);
+                    notifyDataSetChanged();
+                    return;
+                }
+                if(m.getState()==1){
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                    db.child("danhSachBanAn").child("ban"+String.valueOf(m.getBan()))
+                            .child("khachHang").child("danhSachMonAn")
+                            .child(String.valueOf(m.getStt())).child("state")
+                            .setValue(2);
+                    db.child("danhSachOrder").child("danhSach").child(String.valueOf(m.getStt()))
+                            .removeValue();
+                    List.remove(i);
+                    notifyDataSetChanged();
+                    return;
+                }
             }
         });
 

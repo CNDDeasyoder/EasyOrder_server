@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
     ListView lv;
     DatabaseReference mDatabaseReference;
     FirebaseDatabase mFirebaseDatabase;
-    ArrayList<Queue_MonAn> arrayList = new ArrayList<Queue_MonAn>();
+    ArrayList<MonAn> arrayList = new ArrayList<MonAn>();
     Queue_apt apt;
 
     @Override
@@ -46,27 +46,23 @@ public class MainActivity extends AppCompatActivity
         lv.setAdapter(apt);
         //----------------------------------
         mDatabaseReference.child("danhSachOrder").child("danhSach")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        arrayList.clear();
                         for(DataSnapshot data : dataSnapshot.getChildren()){
-                            Queue_MonAn monAn = new Queue_MonAn();
-                            monAn.setTt(Integer.parseInt(data.getKey()));
-                            monAn.setBan(data.child("ban").getValue(int.class));
-                            monAn.setSl(data.child("sl").getValue(int.class));
-                            monAn.setTen(data.child("ten").getValue(String.class));
-                            monAn.setGia(0);
-                            arrayList.add(monAn);
-                            Collections.sort(arrayList, new Comparator<Queue_MonAn>() {
-                                @Override
-                                public int compare(Queue_MonAn m1, Queue_MonAn m2) {
-                                    if(m1.getTt()<m2.getTt()) return -1;
-                                    else if(m1.getTt()==m2.getTt()) return 0;
-                                    else return 1;
-                                }
-                            });
-                            apt.notifyDataSetChanged();
+                            MonAn ma = data.getValue(MonAn.class);
+                            arrayList.add(ma);
                         }
+                        Collections.sort(arrayList, new Comparator<MonAn>() {
+                            @Override
+                            public int compare(MonAn m1, MonAn m2) {
+                                if(m1.getStt()<m2.getStt()) return -1;
+                                else if(m1.getStt()==m2.getSl()) return 0;
+                                else return 1;
+                            }
+                        });
+                        apt.notifyDataSetChanged();
                     }
 
                     @Override
