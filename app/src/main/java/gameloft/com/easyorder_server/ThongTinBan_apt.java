@@ -56,9 +56,9 @@ public class ThongTinBan_apt extends BaseAdapter {
         tname = (TextView)view.findViewById(R.id.table_info_name);
         tgia = (TextView)view.findViewById(R.id.table_info_gia);
         tsl = (TextView)view.findViewById(R.id.table_info_sl);
-        tname.setText(m.getName());
+        tname.setText(m.getTen());
         tgia.setText(String.valueOf(m.getGia()));
-        tsl.setText(String.valueOf(m.getDang_chon()));
+        tsl.setText(String.valueOf(m.getSl()));
         //---------------------------------------------
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +81,7 @@ public class ThongTinBan_apt extends BaseAdapter {
                         mFirebaseDatabase=FirebaseDatabase.getInstance();
                         mDatabaseReference=mFirebaseDatabase.getReference();
                         mDatabaseReference.child("danhSachBanAn").child("ban"+String.valueOf(quan_li_ban.table_number))
-                                .child("khachHang").child("danhSachMonAn").child(String.valueOf(m.getTt())).removeValue();
+                                .child("khachHang").child("danhSachMonAn").child(String.valueOf(m.getStt())).removeValue();
                         Intent intent = new Intent(context,Thong_Tin_Ban.class);
                         context.startActivity(intent);
                     }

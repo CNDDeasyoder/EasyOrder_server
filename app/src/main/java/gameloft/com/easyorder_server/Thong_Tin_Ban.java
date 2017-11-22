@@ -61,13 +61,9 @@ public class Thong_Tin_Ban extends AppCompatActivity {
                         name.setText(dataSnapshot.child("tenKhachHang").getValue(String.class));
                         for(DataSnapshot data:dataSnapshot.child("danhSachMonAn").getChildren()) {
 
-                            MonAn ma = new MonAn();
-                            ma.setName(data.child("name").getValue(String.class));
-                            ma.setDang_chon(data.child("dang_chon").getValue(int.class));
-                            ma.setGia(data.child("gia").getValue(int.class));
-                            ma.setTt(Integer.parseInt(data.getKey()));
+                            MonAn ma = data.getValue(MonAn.class);
                             list.add(ma);
-                            sum+=ma.getDang_chon()*ma.getGia();
+                            sum+=ma.getSl()*ma.getGia();
                             apt.notifyDataSetChanged();
                         }
                         tsum.setText(String.valueOf(sum));

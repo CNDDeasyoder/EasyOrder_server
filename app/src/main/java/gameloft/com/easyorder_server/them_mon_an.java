@@ -121,9 +121,10 @@ public class them_mon_an extends AppCompatActivity
                     return;
                 }
                 int mfee = Integer.parseInt(fee);
+                Rate t = new Rate(1,(float)5);
                 ma.setGia(mfee);
-                ma.setMieuta(mt);
-                ma.setName(name);
+                ma.setTen(name);
+                ma.setRate(t);
 
                 if(imgSelect==null) {
                     Toast.makeText(them_mon_an.this, "Vui lòng chọn hình ảnh", Toast.LENGTH_SHORT).show();

@@ -51,7 +51,7 @@ public class quan_li_mon_an extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+/*
 
          list=new ArrayList<>();
          list2=new ArrayList<>();
@@ -102,7 +102,7 @@ public class quan_li_mon_an extends AppCompatActivity
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
     }
 

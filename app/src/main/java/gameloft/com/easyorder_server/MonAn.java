@@ -1,61 +1,51 @@
 package gameloft.com.easyorder_server;
 
 /**
- * Created by Tonqt Thonq on 10/21/2017.
+ * Created by thinhle on 9/22/17.
  */
-import java.io.Serializable;
-@SuppressWarnings("serial")
-public class MonAn implements Serializable{
-    int dang_chon=0;
-    int gia;
-    String name, mieuta;
 
-    public int getTt() {
-        return tt;
-    }
+public class MonAn {
+    private int ban;
+    private int gia;
+    private int sl;
+    private int state;
+    private int stt;
+    private String ten;
+    private Rate rate;
+    private String id;
 
-    public void setTt(int tt) {
-        this.tt = tt;
-    }
-
-    int tt;
-
-    String id;
+    // constructors
 
     public MonAn() {
     }
 
-    public MonAn(int dang_chon,int gia,String id, String mieuta,String name  ) {
-        this.name = name;
-        this.mieuta = mieuta;
+    public MonAn(int ban, int gia, int sl, int state, int stt, String ten, String id) {
+        this.ban = ban;
         this.gia = gia;
-        this.id = id;
-        this.dang_chon=dang_chon;
-
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
+        this.sl = sl;
+        this.state = state;
+        this.stt = stt;
+        this.ten = ten;
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public MonAn(int ban, int gia, int sl, int state, int stt, String ten, Rate rate, String id) {
+        this.ban = ban;
+        this.gia = gia;
+        this.sl = sl;
+        this.state = state;
+        this.stt = stt;
+        this.ten = ten;
+        this.rate = rate;
+        this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getBan() {
+        return ban;
     }
 
-    public String getMieuta() {
-        return mieuta;
-    }
-
-    public void setMieuta(String mieuta) {
-        this.mieuta = mieuta;
+    public void setBan(int ban) {
+        this.ban = ban;
     }
 
     public int getGia() {
@@ -65,6 +55,52 @@ public class MonAn implements Serializable{
     public void setGia(int gia) {
         this.gia = gia;
     }
-    public void setDang_chon(int d){this.dang_chon=d;}
-    public int getDang_chon(){return this.dang_chon;}
+
+    public int getSl() {
+        return sl;
+    }
+
+    public void setSl(int sl) {
+        this.sl = sl;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getStt() {
+        return stt;
+    }
+
+    public void setStt(int stt) {
+        this.stt = stt;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public Rate getRate() {
+        return rate;
+    }
+
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

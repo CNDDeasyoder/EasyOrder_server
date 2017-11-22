@@ -30,11 +30,11 @@ public class item_quan_li_mon_an extends AppCompatActivity {
 
         MonAn Id=(MonAn) getIntent().getSerializableExtra(EXTRA_ID);
          e1=(EditText) findViewById(R.id.e1);
-        e1.setText(Id.getName()+"");
+        e1.setText(Id.getTen()+"");
          e2=(EditText)findViewById(R.id.e2);
-        e2.setText(""+Id.dang_chon);
+        e2.setText(""+Id.getSl());
          e3=(EditText)findViewById(R.id.e3);
-        e3.setText(""+Id.getMieuta());
+        e3.setText("Muc nay k can");
          e4=(EditText)findViewById(R.id.e4);
         e4.setText(""+Id.getGia());
         ImageView img=(ImageView)findViewById(R.id.img) ;
@@ -56,15 +56,13 @@ public class item_quan_li_mon_an extends AppCompatActivity {
     }
     public void xacnhan(View view)
     {
-
-
         MonAn Id=(MonAn) getIntent().getSerializableExtra(EXTRA_ID);
         int dang_chon=Integer.parseInt(e2.getText().toString()) ;
         int gia=Integer.parseInt(e4.getText().toString()) ;
         String id=Id.getId()+"";
         String mieuta=e3.getText().toString();
         String name=e1.getText().toString();
-        MonAn m=new MonAn(dang_chon,gia,id,mieuta,name);
+        MonAn m=new MonAn();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("mon_an").child(id);
         myRef.setValue(m);
