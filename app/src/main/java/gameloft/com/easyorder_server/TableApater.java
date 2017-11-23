@@ -60,7 +60,18 @@ public class TableApater extends BaseAdapter {
         if( tb.getState() == 0) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
         } else if (tb.getState() == 1) btn.setBackgroundResource(R.drawable.ban_do);
-        else if(tb.getState()==2) {
+        else if(tb.getState()==3) {
+            btn.setBackgroundResource(R.drawable.ban_vang);
+            NotificationManager msgmng = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            Notification msg = new Notification.Builder(context)
+                    .setSmallIcon(R.drawable.ban_vang)
+                    .setContentTitle("Có yêu cầu giúp đỡ")
+                    .setContentText("Bàn "+tb.getBanSo()+" đang yêu cầu giúp đỡ")
+                    .getNotification();
+            msgmng.notify(tb.getBanSo(),msg);
+            DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+            mDatabaseReference.child("danhSachBanAn").child("ban"+tb.getBanSo()).child("state").setValue(1);
+        } else if(tb.getState()==2) {
             btn.setBackgroundResource(R.drawable.ban_vang);
             NotificationManager msgmng = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             Notification msg = new Notification.Builder(context)
@@ -69,7 +80,9 @@ public class TableApater extends BaseAdapter {
                     .setContentText("Bàn "+tb.getBanSo()+" đang yêu cầu thanh toán")
                     .getNotification();
             msgmng.notify(tb.getBanSo(),msg);
+
         }
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +46,8 @@ public class quan_li_ban extends AppCompatActivity
         //---------------------------------------------------------------------------------
         //Hiền code 3/11
         //---------------------------------------------------------------------------------
+        //Hiển thị thông báo khi gọi nhân viên
+        //------------------------------------------------------------------------------------
         grv = (GridView)findViewById(R.id.gr_table);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         apater = new TableApater(this, R.layout.item_table,arrayList);
