@@ -35,7 +35,7 @@ public class quan_li_mon_an extends AppCompatActivity
 
     ArrayList<MonAn> list;ArrayList<String> list2;
     quan_li_mon_an_adapter madapter;
-    // ArrayAdapter<String> adapter;
+   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +51,11 @@ public class quan_li_mon_an extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-/*
+
 
          list=new ArrayList<>();
          list2=new ArrayList<>();
-       //  adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list2);
+      
         madapter=new quan_li_mon_an_adapter(this,R.layout.item_quan_li_mon_an,list2);
         final ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(madapter);
@@ -65,7 +65,7 @@ public class quan_li_mon_an extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 MonAn m=(MonAn)list.get((int) l);
                 Intent intent=new Intent(quan_li_mon_an.this,item_quan_li_mon_an.class);
-                intent.putExtra(item_quan_li_mon_an.EXTRA_ID,m);
+                intent.putExtra(item_quan_li_mon_an.EXTRA_ID,m.getId());
                 startActivity(intent);
             }
         };
@@ -77,7 +77,7 @@ public class quan_li_mon_an extends AppCompatActivity
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 MonAn m=(MonAn)dataSnapshot.getValue(MonAn.class);
-                String name=m.getName();
+                String name=m.getTen();
                 list2.add(name);
                 list.add(m);
                 madapter.notifyDataSetChanged();
@@ -102,7 +102,7 @@ public class quan_li_mon_an extends AppCompatActivity
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });*/
+        });
 
     }
 
