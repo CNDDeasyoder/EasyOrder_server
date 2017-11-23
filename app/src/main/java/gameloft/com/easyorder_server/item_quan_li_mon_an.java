@@ -93,7 +93,7 @@ public class item_quan_li_mon_an extends AppCompatActivity {
         e1.setEnabled(true);
         e2.setEnabled(true);
         e3.setEnabled(true);
-        e4.setEnabled(true);
+        
     }
     public void showAlertDialog(final DatabaseReference myRef){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
