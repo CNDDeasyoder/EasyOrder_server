@@ -2,17 +2,18 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange_bright"
+    android:background="#e1e1e1"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+        android:paddingTop="50dp">
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/edt_name_add"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="25dp"
@@ -27,6 +28,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:gravity="top"
             android:background="@color/white"
             android:hint="Miêu tả sản phẩm"
             android:padding="5dp"
@@ -36,7 +38,7 @@
             <EditText
                 android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:id="@+id/edt_gia_add"
                 android:background="@color/white"
                 android:hint="Giá tiền(đơn vị VND)"
@@ -46,31 +48,29 @@
                 android:layout_marginTop="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
-            <Button
-                android:layout_weight="2"
-                android:id="@+id/btnSelect"
-                android:text="Chọn hình"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/primary_orange"
-                android:textSize="15dp"
-                android:textColor="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+
+        <Button
+            android:id="@+id/btnSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="2"
+            android:background="@color/primary_orange"
+            android:text="Chọn hình"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
 
-
-
-
-            <ImageView
+        <ImageView
                 android:id="@+id/imgUpLoad"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
+            android:layout_marginTop="10dp"
                 android:maxHeight="300dp" />
 
 
@@ -80,16 +80,15 @@
             android:id="@+id/btnUpLoad"
             android:text="TẢI LÊN"
             android:textStyle="bold"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:padding="3dp"
             android:layout_marginTop="20dp"
             android:background="@color/primary_orange"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
 
 

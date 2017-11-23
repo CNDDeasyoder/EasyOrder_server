@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="10dp"
+    android:background="#f3f3f3">
 
     tools:context="gameloft.com.easyorder_server.Thong_Tin_Ban">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#f3f3f3">
+        android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -45,15 +44,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 >
-
+                <ImageView
+                    android:src="@drawable/user_p"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
                 <TextView
                     android:id="@+id/user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="10dp"
                     android:text="example"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#515151"
                     android:textSize="25dp"
                     android:fontFamily=""
@@ -64,14 +67,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="1"
+                android:paddingLeft="15dp"
                 >
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_money"
+                    android:layout_gravity="center"/>
                 <TextView
                     android:id="@+id/user_sum"
                     android:text="example"
                     android:textColor="#f00"
-                    android:textSize="40dp"
-                    android:gravity="right"
-                    android:paddingRight="10dp"
+                    android:textSize="35dp"
+                    android:paddingLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -82,16 +90,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:textAlignment="center">
+            android:padding="10dp"
+            android:background="@color/white"
+            android:paddingBottom="10dp">
 
             <Button
                 android:id="@+id/btn_set_true"
-
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
                 android:layout_marginRight="50dp"
                 android:background="@drawable/lock"
                 android:shadowColor="@color/black" />
@@ -100,9 +106,6 @@
                 android:id="@+id/btn_set_unlock"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-
-                android:layout_marginRight="50dp"
-                android:gravity="center_horizontal"
                 android:background="@drawable/unlock"
                 android:shadowColor="@color/black" />
 
@@ -116,22 +119,21 @@
                 />
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-
-    <ListView
-        android:id="@+id/lv_mon_an"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        >
+        android:background="#a1a1a1"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/lv_mon_an"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal">
 
 
-    </ListView>
+        </ListView>
     </LinearLayout>
 
 
