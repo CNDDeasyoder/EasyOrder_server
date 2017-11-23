@@ -7,12 +7,13 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="gameloft.com.easyorder_server.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="@color/white"
+    android:background="#a1a1a1"
     >
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/q_lv"
+        android:background="#f3f3f3"
         >
     </ListView>
 </LinearLayout>
