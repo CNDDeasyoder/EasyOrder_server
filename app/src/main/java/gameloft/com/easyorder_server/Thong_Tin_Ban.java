@@ -111,7 +111,6 @@ public class Thong_Tin_Ban extends AppCompatActivity {
 
     public void showAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
         builder.setMessage("Xac nhan da thanh toan?");
         builder.setCancelable(false);
         builder.setPositiveButton("Không", new DialogInterface.OnClickListener() {
@@ -127,7 +126,12 @@ public class Thong_Tin_Ban extends AppCompatActivity {
                 pro.setCancelable(false);
                 mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number)).child("state").setValue(0);
                 mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number))
-                        .child("khachHang").removeValue();
+                        .child("khachHang").child("danhSachMonAn").removeValue();
+                for(MonAn ma : list){
+                    DatabaseReference temp = FirebaseDatabase.getInstance().getReference();
+                    temp.child("danhSachOrder").child("danhSach").child(String.valueOf(ma.getStt()))
+                            .removeValue();
+                }
                 pro.dismiss();
                 onBackPressed();
             }
