@@ -55,12 +55,11 @@ public class Thong_Tin_Ban extends AppCompatActivity {
         //------------------------------------------------
         table.setText(String.valueOf(quan_li_ban.table_number));
         mDatabaseReference.child("danhSachBanAn").child("ban" + String.valueOf(quan_li_ban.table_number))
-                .child("khachHang").addListenerForSingleValueEvent(new ValueEventListener() {
+                .child("khachHang").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         name.setText(dataSnapshot.child("tenKhachHang").getValue(String.class));
                         for(DataSnapshot data:dataSnapshot.child("danhSachMonAn").getChildren()) {
-
                             MonAn ma = data.getValue(MonAn.class);
                             list.add(ma);
                             sum+=ma.getSl()*ma.getGia();

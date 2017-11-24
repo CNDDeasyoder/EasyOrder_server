@@ -60,7 +60,7 @@ public class TableApater extends BaseAdapter {
         if( tb.getState() == 0) {
             btn.setBackgroundResource(R.drawable.ban_xanh);
         } else if (tb.getState() == 1) btn.setBackgroundResource(R.drawable.ban_do);
-        else if(tb.getState()==3) {
+        else if(tb.getState()==3){
             btn.setBackgroundResource(R.drawable.ban_vang);
             NotificationManager msgmng = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             Notification msg = new Notification.Builder(context)
@@ -86,7 +86,7 @@ public class TableApater extends BaseAdapter {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                quan_li_ban.table_number=tb.getBanSo();
+                quan_li_ban.table_number = tb.getBanSo();
                 Intent intent = new Intent(context,Thong_Tin_Ban.class);
                 context.startActivity(intent);
             }
