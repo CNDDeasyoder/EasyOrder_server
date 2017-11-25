@@ -183,32 +183,23 @@ public class them_mon_an extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.them_mon_an, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item)  {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_table) {
             Intent intent = new Intent(this, quan_li_ban.class);
             startActivity(intent);
@@ -216,21 +207,16 @@ public class them_mon_an extends AppCompatActivity
             Intent intent = new Intent(this, quan_li_mon_an.class);
             startActivity(intent);
 
-        }
-        else {
-            if (id == R.id.nav_add) {
+        }else if (id == R.id.nav_add) {
                 Intent intent = new Intent(this, them_mon_an.class);
                 startActivity(intent);
-            } else if (id == R.id.nav_order) {
+        } else if (id == R.id.nav_order) {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
 
-            }else if(id == R.id.nav_out){
+        }else if(id == R.id.nav_out){
                 Intent intent = new Intent(this,QuanLiTaiKhoan.class);
                 startActivity(intent);
-            }
-
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

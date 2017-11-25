@@ -46,8 +46,6 @@ public class quan_li_ban extends AppCompatActivity
         //---------------------------------------------------------------------------------
         //Hiền code 3/11
         //---------------------------------------------------------------------------------
-        //Hiển thị thông báo khi gọi nhân viên
-        //------------------------------------------------------------------------------------
         grv = (GridView)findViewById(R.id.gr_table);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         apater = new TableApater(this, R.layout.item_table,arrayList);
@@ -82,16 +80,6 @@ public class quan_li_ban extends AppCompatActivity
 
            }
        });
-
-       /*arrayList.add(new Table(1,true));
-        arrayList.add(new Table(2,false));
-        arrayList.add(new Table(1,true));
-        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
-        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
-        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
-        arrayList.add(new Table(2,false));arrayList.add(new Table(1,true));
-        arrayList.add(new Table(2,false));*/
-
         //----------------------------------------------------------------------------------
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

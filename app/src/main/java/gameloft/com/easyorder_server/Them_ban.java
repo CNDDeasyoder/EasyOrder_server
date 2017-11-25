@@ -120,5 +120,4 @@ public class Them_ban extends AppCompatActivity {
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
                 }
-
 }

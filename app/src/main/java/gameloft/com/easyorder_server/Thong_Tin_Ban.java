@@ -70,7 +70,6 @@ public class Thong_Tin_Ban extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
                     }
                 });
 

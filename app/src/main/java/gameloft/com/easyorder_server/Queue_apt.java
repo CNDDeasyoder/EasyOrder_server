@@ -87,7 +87,6 @@ public class Queue_apt extends BaseAdapter {
                 }
             }
         });
-
         return view;
     }
 }
