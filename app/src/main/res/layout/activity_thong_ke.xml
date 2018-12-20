@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gameloft.com.easyorder_server.ThongKe">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txtThu"
+                android:textColor="@color/blue"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txtChi"
+                android:textColor="@color/red"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txtChoVay"
+                android:textColor="@color/green"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txtVay"
+                android:textColor="@color/violet"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:id="@+id/txtThuChi"
+                    android:textColor="@color/violet"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txt1"
+                android:textColor="@color/black"
+                android:text="Tổng cộng"
+                />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="800px"
+                android:orientation="vertical"
+                android:weightSum="100"
+                >
+
+
+                <lecho.lib.hellocharts.view.PieChartView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/chartToday"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txt2"
+                android:textColor="@color/black"
+                android:text="Tháng này"
+                />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="800px"
+                android:orientation="vertical"
+                >
+
+                <lecho.lib.hellocharts.view.PieChartView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/chartMonth"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:id="@+id/txt23"
+                android:textColor="@color/black"
+                android:text="Năm này"
+                />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="800px"
+                android:orientation="vertical"
+                android:weightSum="100"
+                >
+
+                <lecho.lib.hellocharts.view.PieChartView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/chartYear"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

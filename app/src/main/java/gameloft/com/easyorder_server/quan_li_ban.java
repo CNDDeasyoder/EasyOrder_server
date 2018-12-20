@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -23,15 +24,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class quan_li_ban extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    GridView grv;
-    ArrayList<Table> arrayList = new ArrayList<Table>();
-    TableApater apater;
+    ListView listView;
+    ArrayList<ItemThuCh> arrayList = new ArrayList<ItemThuCh>();
+    ItemAdapter apater;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mReference;
     static int table_number;
@@ -46,32 +50,40 @@ public class quan_li_ban extends AppCompatActivity
         //---------------------------------------------------------------------------------
         //Hiền code 3/11
         //---------------------------------------------------------------------------------
-        grv = (GridView)findViewById(R.id.gr_table);
+        listView = (ListView)findViewById(R.id.listView);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        apater = new TableApater(this, R.layout.item_table,arrayList);
-        grv.setAdapter(apater);
+        apater = new ItemAdapter(this, R.layout.item_table,arrayList);
+        listView.setAdapter(apater);
 
-        mReference=mFirebaseDatabase.getReference().child("danhSachBanAn");
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                ItemThuCh crrItem = (ItemThuCh) adapterView.getItemAtPosition(i);
+//                Toast.makeText(quan_li_ban.this,crrItem.note,Toast.LENGTH_SHORT).show();
+//
+//                return false;
+//            }
+//        });
+
+        mReference=mFirebaseDatabase.getReference().child(GV.userName).child("listAction");
        mReference.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
                arrayList.clear();
                for(DataSnapshot data : dataSnapshot.getChildren()){
-
-                   int boo = data.child("state").getValue(int.class);
-                   int id = data.child("banSo").getValue(int.class);
-                   Table temp = new Table(id,boo);
+                   ItemThuCh temp = data.getValue(ItemThuCh.class);
                    arrayList.add(temp);
                    }
                apater.notifyDataSetChanged();
-               Collections.sort(arrayList, new Comparator<Table>() {
-                   @Override
-                   public int compare(Table t1, Table t2) {
-                       if(t1.getBanSo()<t2.getBanSo()) return -1;
-                       else if (t1.getBanSo()==t2.getBanSo()) return 0;else
-                           return 1;
-                   }
-               });
+               GV.arrayList = arrayList;
+//               Collections.sort(arrayList, new Comparator<Table>() {
+//                   @Override
+//                   public int compare(Table t1, Table t2) {
+//                       if(t1.getBanSo()<t2.getBanSo()) return -1;
+//                       else if (t1.getBanSo()==t2.getBanSo()) return 0;else
+//                           return 1;
+//                   }
+//               });
                apater.notifyDataSetChanged();
            }
 
@@ -90,14 +102,16 @@ public class quan_li_ban extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        FloatingActionButton btnTongHop = (FloatingActionButton) findViewById(R.id.btnTongHop);
+        btnTongHop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent =  new Intent(quan_li_ban.this, ThongKe.class);
+                startActivity(mIntent);
+            }
+        });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override

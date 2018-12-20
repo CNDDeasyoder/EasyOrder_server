@@ -30,6 +30,7 @@
         android:textColor="@color/black"
         android:background="@color/white"
         android:hint="@string/hint_user"
+        android:text="admin"
         />
     <EditText
         android:layout_width="match_parent"
@@ -45,6 +46,37 @@
         android:background="@color/white"
         android:hint="@string/hint_pass"
         android:inputType="textPassword"
+        android:text="admin"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_pass2"
+        android:layout_below="@id/edt_pass"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:hint="@string/hint_pass"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_Email"
+        android:layout_below="@id/edt_pass2"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         />
     <TextView
         android:id="@+id/tv1"
@@ -52,9 +84,10 @@
         android:layout_height="wrap_content"
         android:text="ID và pass mặc định là: admin"
         android:textColor="@color/white"
-        android:layout_below="@+id/edt_pass"
+        android:layout_below="@+id/edt_Email"
         android:layout_centerHorizontal="true"
         />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,6 +103,22 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:onClick="login"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_register"
+        android:layout_below="@id/btn_creat"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/primary_orange"
+        android:textColor="@color/white"
+        android:text="Đăng kí"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:onClick="register"
         />
 
 
